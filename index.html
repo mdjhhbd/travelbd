@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>সম্পূর্ণ বাংলাদেশ — ভ্রমণ গাইড</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@500;700;900&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-deep:#0b3d2e;
+  --green:#0f5132;
+  --green-soft:#e6efe8;
+  --red:#c8102e;
+  --gold:#c9942c;
+  --cream:#faf6ec;
+  --paper:#fffdf7;
+  --ink:#1c211d;
+  --ink-soft:#5b6459;
+  --line:#e3ddc9;
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Hind Siliguri',sans-serif;}
+h1,h2,h3,.display{font-family:'Noto Serif Bengali',serif;}
+::selection{background:var(--gold);color:#fff;}
+
+/* ---------- top bar ---------- */
+.topbar{position:sticky;top:0;z-index:40;background:var(--green-deep);color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.15);}
+.topbar .brand{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.brand .flag{width:26px;height:17px;background:var(--green);position:relative;border-radius:2px;overflow:hidden;flex:none;}
+.brand .flag::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--red);top:50%;left:46%;transform:translate(-50%,-50%);}
+.brand .t1{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:17px;line-height:1.1;}
+.brand .t2{font-size:11px;color:#cfe3d6;letter-spacing:.5px;}
+.topnav{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
+.topnav button{background:transparent;border:1px solid rgba(255,255,255,.25);color:#eef5ee;padding:7px 13px;border-radius:20px;font-family:inherit;font-size:13.5px;cursor:pointer;transition:.15s;}
+.topnav button:hover{background:rgba(255,255,255,.12);}
+.topnav button.active{background:var(--gold);border-color:var(--gold);color:#241a04;font-weight:600;}
+.userchip{display:flex;align-items:center;gap:8px;font-size:13px;color:#eef5ee;}
+.userchip .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.admin-badge{background:var(--red);color:#fff;font-size:10.5px;padding:2px 8px;border-radius:10px;font-weight:600;letter-spacing:.3px;}
+.logout-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#eef5ee;padding:6px 12px;border-radius:16px;font-size:12px;cursor:pointer;transition:.15s;}
+.logout-btn:hover{background:rgba(255,255,255,.25);}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:26px 20px 70px;}
+.hero{background:linear-gradient(135deg,var(--green-deep),var(--green) 70%);border-radius:20px;padding:40px 40px;color:#fff;margin-bottom:26px;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(201,148,44,.35),transparent 70%);}
+.hero h1{margin:0 0 8px;font-size:clamp(28px,5vw,40px);}
+.hero p{margin:0;color:#dcebe1;max-width:680px;font-size:15px;line-height:1.8;}
+.hero .stats{display:flex;gap:26px;margin-top:28px;flex-wrap:wrap;}
+.hero .stat b{font-size:28px;font-family:'Noto Serif Bengali',serif;display:block;color:var(--gold);}
+.hero .stat span{font-size:12.5px;color:#cfe3d6;}
+
+/* ---------- portfolio section ---------- */
+.portfolio{background:linear-gradient(to right, rgba(11,61,46,.1), rgba(15,81,50,.1));border-radius:20px;padding:40px;margin-bottom:30px;border:1px solid var(--green-soft);}
+.portfolio h2{margin:0 0 24px;font-size:24px;color:var(--green-deep);}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.portfolio-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;transition:.2s;}
+.portfolio-item:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(15,81,50,.12);}
+.portfolio-item .icon{font-size:48px;margin-bottom:12px;}
+.portfolio-item h3{margin:0 0 8px;font-size:18px;color:var(--green-deep);}
+.portfolio-item p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.6;}
+
+/* ---------- cards / grid ---------- */
+.section-title{display:flex;align-items:baseline;gap:10px;margin:30px 0 14px;}
+.section-title h2{font-size:20px;margin:0;color:var(--green-deep);}
+.section-title .count{font-size:12.5px;color:var(--ink-soft);}
+.division-block{margin-bottom:6px;}
+.division-header{display:flex;align-items:center;gap:10px;background:var(--green-soft);border-radius:12px;padding:10px 16px;cursor:pointer;user-select:none;margin-bottom:12px;border:1px solid #d7e6db;}
+.division-header h3{margin:0;font-size:16.5px;color:var(--green-deep);flex:1;}
+.division-header .prog{font-size:12px;color:var(--ink-soft);background:#fff;padding:3px 10px;border-radius:12px;border:1px solid var(--line);}
+.division-header .chev{transition:.2s;color:var(--green);}
+.division-header.collapsed .chev{transform:rotate(-90deg);}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:22px;}
+.dcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;cursor:pointer;transition:.15s;position:relative;}
+.dcard:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(15,81,50,.1);border-color:var(--green);}
+.dcard h4{margin:0 0 6px;font-size:16px;color:var(--ink);font-family:'Noto Serif Bengali',serif;}
+.dcard .sub{font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+.dcard .visited-tag{position:absolute;top:12px;right:12px;background:var(--green);color:#fff;font-size:10.5px;padding:2px 9px;border-radius:10px;}
+.dcard .tags{display:flex;flex-wrap:wrap;gap:5px;}
+.dcard .tags span{font-size:10.5px;background:var(--green-soft);color:var(--green-deep);padding:2px 8px;border-radius:8px;}
+.dcard .famous{font-size:11px;color:var(--red);font-weight:600;margin-top:8px;padding-top:8px;border-top:1px solid var(--line);}
+
+/* ---------- district detail ---------- */
+.backbtn{background:none;border:none;color:var(--green);font-family:inherit;font-size:13.5px;cursor:pointer;padding:6px 0;margin-bottom:10px;display:flex;align-items:center;gap:4px;}
+.dhead{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-bottom:18px;}
+.dhead-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;}
+.dhead h1{margin:0 0 4px;font-size:26px;color:var(--green-deep);}
+.dhead .breadcrumb{font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+.dhead .famous{font-size:13px;background:var(--gold);color:#fff;padding:8px 12px;border-radius:8px;display:inline-block;margin-top:10px;font-weight:600;}
+.dhead .history{font-size:14.5px;line-height:1.8;color:#333;margin-top:10px;}
+.visit-btn{background:var(--green);color:#fff;border:none;padding:10px 18px;border-radius:24px;font-family:inherit;font-weight:600;font-size:13.5px;cursor:pointer;white-space:nowrap;}
+.visit-btn.done{background:var(--gold);color:#2a1e02;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;}
+.panel h3{margin:0 0 10px;font-size:15px;color:var(--green-deep);display:flex;align-items:center;gap:7px;}
+.panel ul{margin:0;padding-left:18px;font-size:13.8px;line-height:1.9;color:#2c332c;}
+.panel .empty{font-size:12.5px;color:var(--ink-soft);font-style:italic;}
+.transport-row{display:flex;gap:8px;margin-bottom:8px;font-size:13.5px;align-items:flex-start;}
+.transport-row .ic{width:22px;flex:none;text-align:center;}
+.transport-row b{color:var(--green-deep);}
+
+.upazila-panel{grid-column:1/-1;}
+.upazila-list{display:flex;flex-wrap:wrap;gap:7px;}
+.upazila-chip{background:var(--green-soft);color:var(--green-deep);font-size:12.5px;padding:5px 12px;border-radius:14px;border:1px solid #d7e6db;cursor:pointer;transition:.15s;}
+.upazila-chip:hover{background:var(--green);color:#fff;}
+
+/* ---------- media ---------- */
+.media-panel{grid-column:1/-1;}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-top:10px;}
+.media-item{border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#000;position:relative;}
+.media-item img,.media-item video{width:100%;height:120px;object-fit:cover;display:block;}
+.media-item .cap{font-size:11px;background:#fff;padding:5px 8px;color:var(--ink-soft);}
+.media-item .del{position:absolute;top:5px;right:5px;background:rgba(0,0,0,.55);color:#fff;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer;font-size:12px;line-height:1;}
+.add-media{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+.add-media input,.add-media select{font-family:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff;}
+.add-media input[type=text]{flex:1;min-width:160px;}
+.add-media button{background:var(--red);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-family:inherit;font-size:13px;cursor:pointer;font-weight:600;}
+.admin-note{font-size:11.5px;color:var(--ink-soft);margin-top:6px;}
+
+/* ---------- upazila detail ---------- */
+.upazila-detail{background:var(--green-soft);border-radius:12px;padding:16px;margin-bottom:16px;border:1px solid #d7e6db;}
+.upazila-detail h4{margin:0 0 8px;font-size:15px;color:var(--green-deep);}
+.upazila-detail .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;}
+
+/* ---------- login ---------- */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 20%,#12583f,var(--green-deep) 60%);padding:20px;}
+.login-container{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:900px;width:100%;}
+.login-card{background:var(--paper);border-radius:20px;padding:38px 34px;box-shadow:0 20px 60px rgba(0,0,0,.35);text-align:center;}
+.login-card.signup{grid-column:1/-1;}
+.login-card .flag-big{width:58px;height:38px;background:var(--green);border-radius:6px;margin:0 auto 14px;position:relative;}
+.login-card .flag-big::after{content:"";position:absolute;width:22px;height:22px;border-radius:50%;background:var(--red);top:50%;left:46%;transform:translate(-50%,-50%);}
+.login-card h1{font-size:22px;margin:0 0 6px;color:var(--green-deep);}
+.login-card p{font-size:13.5px;color:var(--ink-soft);margin:0 0 22px;line-height:1.7;}
+.login-card input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:14.5px;margin-bottom:12px;}
+.login-card button{width:100%;padding:12px;border:none;border-radius:10px;background:var(--green);color:#fff;font-family:inherit;font-weight:600;font-size:14.5px;cursor:pointer;margin-top:6px;}
+.login-card button:hover{background:var(--green-deep);}
+.login-divider{text-align:center;color:var(--ink-soft);font-size:12px;margin:16px 0;}
+
+/* ---------- progress page ---------- */
+.progress-list{display:flex;flex-direction:column;gap:8px;}
+.progress-row{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);padding:10px 14px;border-radius:10px;font-size:13.5px;cursor:pointer;transition:.15s;}
+.progress-row:hover{background:var(--green-soft);}
+.progress-row .chk{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);flex:none;}
+.progress-row.done .chk{background:var(--green);border-color:var(--green);}
+.progress-row .dn{flex:1;}
+.progress-row .divname{color:var(--ink-soft);font-size:11.5px;}
+.progress-row .upz-count{background:var(--green);color:#fff;font-size:10px;padding:2px 6px;border-radius:8px;font-weight:600;}
+.bar-wrap{background:#e9e3cf;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 20px;}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--green));border-radius:20px;transition:.4s;}
+
+/* ---------- admin toggle box ---------- */
+.admin-box{background:#fff7ee;border:1px dashed var(--gold);border-radius:12px;padding:14px 16px;margin-bottom:20px;font-size:13px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.admin-box input{padding:7px 10px;border:1px solid var(--line);border-radius:7px;font-family:inherit;width:120px;}
+.admin-box button{background:var(--green-deep);color:#fff;border:none;padding:7px 14px;border-radius:7px;font-family:inherit;cursor:pointer;font-size:12.5px;}
+.small-muted{font-size:11.5px;color:var(--ink-soft);}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--green-deep);color:#fff;padding:11px 22px;border-radius:24px;font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:100;opacity:0;pointer-events:none;transition:.25s;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px);}
+.search-box{display:flex;gap:8px;margin-bottom:18px;}
+.search-box input{flex:1;padding:11px 16px;border:1px solid var(--line);border-radius:24px;font-family:inherit;font-size:14px;background:var(--paper);}
+footer{text-align:center;padding:30px 10px;font-size:12px;color:var(--ink-soft);}
+
+/* ---------- seasons ---------- */
+.season-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.season-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;border-top:5px solid var(--gold);}
+.season-card.summer{border-top-color:#e8863c;}
+.season-card.monsoon{border-top-color:#2c6e8f;}
+.season-card.autumn{border-top-color:#8a7a3d;}
+.season-card.hemanta{border-top-color:#6b8f4e;}
+.season-card.winter{border-top-color:#4a5b8f;}
+.season-card.spring{border-top-color:#c8567a;}
+.season-card h3{margin:0 0 3px;font-size:18px;color:var(--green-deep);}
+.season-card .months{font-size:12px;color:var(--ink-soft);margin-bottom:10px;}
+.season-card p{font-size:13.5px;line-height:1.7;color:#333;margin:0 0 10px;}
+.season-card ul{margin:0;padding-left:18px;font-size:13px;line-height:1.85;}
+.season-card .dtags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.season-card .dtags span{font-size:11px;background:var(--green-soft);color:var(--green-deep);padding:3px 9px;border-radius:8px;cursor:pointer;}
+
+/* ---------- itinerary ---------- */
+.itin-tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
+.itin-tabs button{background:var(--paper);border:1px solid var(--line);padding:9px 18px;border-radius:24px;font-family:inherit;font-size:13.5px;cursor:pointer;}
+.itin-tabs button.active{background:var(--green);color:#fff;border-color:var(--green);}
+.itin-panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.itin-panel h3{margin:0 0 3px;font-size:19px;color:var(--green-deep);}
+.itin-panel .sub{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+.itin-steps{list-style:none;margin:0;padding:0;}
+.itin-steps li{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);}
+.itin-steps li:last-child{border-bottom:none;}
+.itin-steps .num{width:30px;height:30px;border-radius:50%;background:var(--green-soft);color:var(--green-deep);display:flex;align-items:center;justify-content:center;font-weight:700;flex:none;font-size:13px;}
+.itin-steps .txt{font-size:14px;line-height:1.7;padding-top:3px;}
+
+/* ---------- services ---------- */
+.service-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+.service-card h3{margin:0 0 8px;font-size:16px;color:var(--green-deep);}
+.service-card p{font-size:13.5px;line-height:1.7;color:#333;margin:0 0 12px;}
+.service-links a{display:inline-block;background:var(--green-soft);color:var(--green-deep);text-decoration:none;font-size:12.5px;padding:6px 12px;border-radius:16px;margin:0 6px 6px 0;border:1px solid #d7e6db;}
+.service-links a:hover{background:var(--green);color:#fff;}
+.guide-form input,.guide-form textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:13.5px;margin-bottom:10px;}
+.guide-form button{background:var(--red);color:#fff;border:none;padding:9px 18px;border-radius:8px;font-family:inherit;cursor:pointer;font-weight:600;font-size:13px;}
+
+/* ---------- train map ---------- */
+.tm-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-align:center;}
+.tm-card iframe{width:100%;height:560px;border:1px solid var(--line);border-radius:10px;margin-top:16px;}
+.tm-linkbtn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;padding:11px 24px;border-radius:24px;font-weight:600;font-size:14px;margin-top:14px;}
+.tm-note{font-size:12px;color:var(--ink-soft);margin-top:10px;}
+
+@media(max-width:640px){
+  .topnav{display:none;}
+  .hero{padding:24px 18px;}
+  .login-container{grid-template-columns:1fr;}
+  .portfolio-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="loginScreen" class="login-wrap">
+  <div class="login-container" id="authContainer">
+    <div class="login-card">
+      <div class="flag-big"></div>
+      <h1>লগইন করুন</h1>
+      <p>আপনার ভ্রমণ অ্যাকাউন্টে লগইন করুন</p>
+      <input id="loginEmail" type="email" placeholder="ইমেইল বা ব্যবহারকারী নাম">
+      <input id="loginPassword" type="password" placeholder="পাসওয়ার্ড">
+      <button onclick="doLogin()">লগইন করুন</button>
+      <div class="login-divider">অথবা</div>
+      <button onclick="switchToSignup()" style="background:var(--gold);color:#241a04;">নতুন অ্যাকাউন্ট তৈরি করুন</button>
+    </div>
+    <div class="login-card" style="background:linear-gradient(135deg,var(--green-soft),#f0f8f5);">
+      <h3 style="color:var(--green-deep);margin-top:0;">স্বাগতম!</h3>
+      <p>সম্পূর্ণ বাংলাদেশ ৬৪টি জেলা ঘুরে দেখুন, ভ্রমণ প্রোগ্রেস ট্র্যাক করুন এবং আপনার অভিজ্ঞতা শেয়ার করুন।</p>
+      <p style="font-size:12px;line-height:2;margin-top:16px;">
+        ✓ সব জেলার ইতিহাস ও দর্শনীয় স্থান<br>
+        ✓ যাতায়াত ব্যবস্থা ও বিখ্যাত খাবার<br>
+        ✓ ভ্রমণ প্রোগ্রেস ট্র্যাকিং<br>
+        ✓ ছবি ও ভিডিও শেয়ারিং
+      </p>
+    </div>
+  </div>
+</div>
+
+<div id="appRoot" style="display:none;">
+  <div class="topbar">
+    <div class="brand" onclick="navigate('home')">
+      <div class="flag"></div>
+      <div>
+        <div class="t1">সম্পূর্ণ বাংলাদেশ</div>
+        <div class="t2">ভ্রমণ গাইড</div>
+      </div>
+    </div>
+    <div class="topnav">
+      <button onclick="navigate('home')" id="nav-home">হোম</button>
+      <button onclick="navigate('explore')" id="nav-explore">সব জেলা</button>
+      <button onclick="navigate('seasons')" id="nav-seasons">৬ ঋতুর গাইড</button>
+      <button onclick="navigate('itinerary')" id="nav-itinerary">ভ্রমণ পরিকল্পনা</button>
+      <button onclick="navigate('trainmap')" id="nav-trainmap">ট্রেন ম্যাপ</button>
+      <button onclick="navigate('services')" id="nav-services">সেবা</button>
+      <button onclick="navigate('progress')" id="nav-progress">আমার প্রোগ্রেস</button>
+    </div>
+    <div class="userchip">
+      <span class="dot"></span><span id="userNameChip"></span>
+      <span id="adminBadge" class="admin-badge" style="display:none;">ADMIN</span>
+      <button class="logout-btn" onclick="doLogout()">লগআউট</button>
+    </div>
+  </div>
+
+  <div class="wrap" id="pageRoot"></div>
+  <footer>সম্পূর্ণ বাংলাদেশ ভ্রমণ গাইড · তথ্যসূত্র: bangladesh.gov.bd, বাংলাদেশ রেলওয়ে · উপাত্ত ক্রমশ সম্প্রসারিত হচ্ছে</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
